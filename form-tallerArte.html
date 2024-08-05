@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Fatima Arce">
+  <title>Fatima Arce-Inscripción a Taller de Arte</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        zoom: 80%;
+    }    
+    .containerTaller {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0000001a;
+      max-width: 1200px;
+      width: 100%;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-column, .motivational-column {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      flex: 1;
+      margin: 10px;
+      box-sizing: border-box;
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .radio-group input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #cddace;
+    }
+
+    .motivational-column {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e0f7fa;
+      color: #00695c;
+      font-size: 18px;
+      text-align: center;
+    }
+
+  </style>
+  <script src="https://kit.fontawesome.com/c5eafcdf48.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="containerTaller">
+    <form id="tallerArte" onsubmit="return validateForm()">
+      <div class="form-column">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <span id="nombreError" class="error"></span>
+  
+        <label>Género:</label>
+        <div class="radio-group">
+          <input type="radio" id="generoFemenino" name="genero" value="Femenino" required>
+          <label for="generoFemenino">Femenino</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="generoMasculino" name="genero" value="Masculino">
+          <label for="generoMasculino">Masculino</label>
+        </div>
+        <span id="generoError" class="error"></span>
+  
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required>
+        <span id="edadError" class="error"></span>
+  
+        <label for="nivel">Nivel de experiencia:</label>
+        <select id="nivel" name="nivel" required>
+          <option value="">Seleccione...</option>
+          <option value="Principiante">Principiante</option>
+          <option value="Intermedio">Intermedio</option>
+          <option value="Avanzado">Avanzado</option>
+        </select>
+        <span id="nivelError" class="error"></span>
+      </div>
+  
+      <div class="form-column">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error"></span>
+  
+        <label>
+          <input type="checkbox" id="recibirInformacion" name="recibirInformacion">
+          Deseo recibir información sobre futuros talleres
+        </label>
+        <span id="informacionError" class="error"></span>
+  
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
+        <span id="comentariosError" class="error"></span>
+  
+        <input type="submit" value="Enviar">
+      </div>
+    </form>
+    <div class="texto-column">
+      <div class="titulo-column">
+        <h2 id="inscripcionTaller">Inscripción a Taller de Arte</h2>
+      </div>
+      <div class="motivational-column">
+        <p>"El arte es la expresión más pura de la creatividad humana. ¡Únete a nuestro taller y descubre tu potencial artístico!"</p>
+      </div>
+      <a href="acerca-de.html">Regresar <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>  
+  <script type="text/javascript">
+    function validateForm() {
+      var nombre = document.getElementById('nombre').value;
+      var generoFemenino = document.getElementById('generoFemenino').checked;
+      var generoMasculino = document.getElementById('generoMasculino').checked;
+      var edad = document.getElementById('edad').value;
+      var nivel = document.getElementById('nivel').value;
+      var email = document.getElementById('email').value;
+      var recibirInformacion = document.getElementById('recibirInformacion').checked;
+      var comentarios = document.getElementById('comentarios').value;
+
+      var nombreError = document.getElementById('nombreError');
+      var generoError = document.getElementById('generoError');
+      var edadError = document.getElementById('edadError');
+      var nivelError = document.getElementById('nivelError');
+      var emailError = document.getElementById('emailError');
+      var informacionError = document.getElementById('informacionError');
+      var comentariosError = document.getElementById('comentariosError');
+
+      var valid = true;
+
+      // Validación del nombre
+      if (nombre.trim() === '') {
+        nombreError.textContent = 'Debe ingresar su nombre';
+        valid = false;
+      } else {
+        nombreError.textContent = '';
+      }
+
+      // Validación del género
+      if (!generoFemenino && !generoMasculino) {
+        generoError.textContent = 'Debe seleccionar su género';
+        valid = false;
+      } else {
+        generoError.textContent = '';
+      }
+
+      // Validación de la edad
+      if (isNaN(edad) || edad <= 0) {
+        edadError.textContent = 'La edad debe ser un número válido';
+        valid = false;
+      } else {
+        edadError.textContent = '';
+      }
+
+      // Validación del nivel de experiencia
+      if (nivel === '') {
+        nivelError.textContent = 'Debe seleccionar su nivel de experiencia';
+        valid = false;
+      } else {
+        nivelError.textContent = '';
+      }
+
+      // Validación del email
+      if (!isValidEmail(email)) {
+        emailError.textContent = 'Ingrese un correo electrónico válido';
+        valid = false;
+      } else {
+        emailError.textContent = '';
+      }
+
+      if (valid) {
+        alert('Todos los datos son correctos. El formulario se limpiará ahora.');
+        clearForm();
+      }
+
+      return valid;
+    }
+
+    function isValidEmail(email) {
+      // Utilizando una expresión regular básica para validar el formato de email
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function clearForm() {
+      document.getElementById('nombre').value = '';
+      document.getElementById('generoFemenino').checked = false;
+      document.getElementById('generoMasculino').checked = false;
+      document.getElementById('edad').value = '';
+      document.getElementById('nivel').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('recibirInformacion').checked = false;
+      document.getElementById('comentarios').value = '';
+      document.getElementById('nombreError').textContent = '';
+      document.getElementById('generoError').textContent = '';
+      document.getElementById('edadError').textContent = '';
+      document.getElementById('nivelError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('informacionError').textContent = '';
+      document.getElementById('comentariosError').textContent = '';
+    }
+  </script>      
+</body>
+</html>
